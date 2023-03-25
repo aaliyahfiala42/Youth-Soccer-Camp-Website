@@ -1,0 +1,15 @@
+{
+  "name": "Kelso Youth Soccer Camp",
+  "short_name": "Youth Soccer Camp",
+  "icons": [
+    {
+      "src": "public/assets/Kelso_Logo.jpg",
+      "sizes": "16x16",
+      "type": "image/jpg"
+    }
+  ],
+  "start_url": "/?utm_source=a2hs",
+  "theme_color": "#034A98",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

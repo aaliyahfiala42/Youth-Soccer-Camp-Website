@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('layouts/head'); %>
+
+    <title>Kelso Youth Soccer Camp</title>
+</head>
+
+<body>
+<%- include('layouts/navbar'); %>
+
+<main>
+    <section>
+        <div class="container py-4 py-md-5" style="background-color: #ffffff">
+            <div class="row align-items-center py-5">
+                <div class="col-md-7">
+                    <h1 class="display-2 fw-bold">Three Rivers Youth Soccer Camp</h1>
+                    <p class="lead my-3">
+                      Summer Youth Soccer Camp Boys and Girls ages 10-15 years
+                    </p>
+                    <p class="mb-0">
+                        <button type="button" class="btn-pill btn-lg btn-primary me-3" data-bs-toggle="modal"
+                                data-bs-target="#signupModal">Register
+                        </button>
+                        <a class="btn-pill btn-lg btn-info" href="camps">Learn more</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Upcoming Events Section -->
+    <section id="about" class="text-light"  style="background-color: #034A98;">
+        <div class="container py-4 py-md-5">
+            <h1 class="display-3 fw-bold">Upcoming Events</h1>
+            <div class="col-md-5">
+                <img src="/assets/general soccer.jpg" class="w-100">
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <br/>
+                    <h2>Summer 2023 Soccer Camp</h2>
+                    <h4>July 22 - 23, 2023</h4>
+                    <h4><a href="https://goo.gl/maps/zVVHtkbLvbhokisP6" style="color: #FABF01">Riverside Park, Lexington, WA</a></h4>
+                    <p>
+                        Join us for the first annual soccer camp by Kelso Soccer Club, as we work to bring the community together, promote exercise, teamwork and leadership through soccer. 
+                    </p>
+                    <ul>
+                        <li>
+                            Open to all boys and girls ages 10-15, beginner to intermediate level
+                        </li>
+                        <li>
+                            Lunch provided on Saturday
+                        </li>
+                        <li>
+                            Soccer camp T-Shirt included
+                        </li>
+                        <li>
+                            Registration fee is $75 + 10% Off Fall Soccer Registration
+                        </li>
+                    </ul>
+                </div>
+                <p class="mb-0">
+                    <button type="button" class="btn-pill btn-lg btn-primary me-3" data-bs-toggle="modal"
+                            data-bs-target="#signupModal">Register
+                    </button>
+                    <a class="btn-pill btn-lg btn-info" href="camps">Learn more</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<%- include('layouts/footer'); %>
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Custom JavaScript -->
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../layouts/head'); %>
+
+    <title>Registrations</title>
+</head>
+
+<!--ADMIN VIEW: List of Registrations-->
+<body class="bg-light">
+    <%- include('../layouts/navbar', {active: 'posts'}); %>
+
+<main>
+    <section>
+        <div class="container py-4 py-md-5">
+
+            <h1 class="font-slab mb-4">
+                Soccer Camp Registrations
+            </h1>
+            
+            <!--Export all registrations to Excel-->
+            <div class="d-flex align-items-end flex column py-2">
+
+            <a href="/exporttocsv" class="btn btn-primary" style="background-color: #10793F; border: #10793F;">
+                <i class="fas fa-download" ></i>
+                Export to Excel
+            </a>
+
+            </div>
+
+            <!--List each registration-->
+            <div class="row">
+                <% posts.forEach((post) => { %>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-subtitle mb-2 text-muted">
+                                    <%= post.childFirstName %> <%= post.childLastName %>
+                                </h5>
+                                <p>
+                                    <b>Parent Name: </b><%= post.author.firstName %> <%= post.author.lastName %>
+                                </p>
+                                <p>
+                                    <b>Parent Email: </b><a href="mailto:<%= post.author.email %>"><%= post.author.email %></a>
+                                </p>
+                                <p>
+                                    <b>Child Name: </b><%= post.childFirstName %> <%= post.childLastName %>
+                                </p>
+                                <p>
+                                    <b>Child DOB: </b><%= post.childDOB.getMonth()%>/<%= post.childDOB.getDate()%>/<%= post.childDOB.getFullYear()%> 
+                                </p>
+                                <p>
+                                    <b>Child Gender: </b><%= post.childGender %>
+                                </p>
+                                <p>
+                                    <b>Child Shirt Size: </b><%= post.childShirtSize %>
+                                </p>
+                                <p>
+                                    <b>Registration Date: </b><%= post.createdAt.toDateString() %>
+                                </p>
+                                <a href="/posts/<%= post.id %>" class="btn btn-primary">
+                                    <i class="fas fa-book-open"></i>
+                                    Manage Details
+                                </a>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                    <br/>
+                <% }); %>
+            </div>
+            <br/>
+        </div>
+    </section>
+</main>
+
+<!-- Flash Alert -->
+<% if (flash.length > 0) { %>
+    <% flash.forEach((message) => { %>
+        <div class="alert alert-danger alert-dismissible fade show fixed-top mt-3 ms-3 d-inline-block w-md-25"
+             role="alert">
+            <strong><%= message %></strong> Please try again.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }); %>
+<% } %>
+
+
+<%- include('../layouts/footer'); %>
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Page Initialization Utilities -->
+<script src="/scripts/util.js">
+</script>
+
+<!-- Custom JavaScript -->
+<script>
+    shortPageFooter();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('layouts/head'); %>
+
+    <title>About Us</title>
+</head>
+
+<body>
+<%- include('layouts/navbar'); %>
+
+<main>
+    <section class="container py-4 py-md-5">
+        <h1 class="font-slab">About Us</h1>
+        <p class="text-muted">Three Rivers Soccer Camp</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        The <a href="/camps">2023 Youth Soccer Camp</a> will be run by the Lower Columbia College Women's Soccer Team and their Head Coach Joe Chicks. The camp is hosted by the Kelso Soccer Club.
+                    </p>
+                </div>
+            <div class="row">
+                <h2>Kelso Soccer Club</h2>
+                <div class="col-md-5">
+                    <img src="/assets/Kelso_Logo.jpg" class="w-50">
+                </div>
+                <div>
+                    <br/>
+                </div>
+                <p>
+                    <!-- ABOUT KESLO YOUTH SOCCER HERE -->
+                </p>
+                <br/>
+                <p><a href="http://www.cowlitzyouthsoccer.com/kelso">Learn more about Kelso Soccer Club</a></p>
+            </div>
+
+            <div class="row">
+                <h2>Coach Joe Chicks</h2>
+                <div class="col-md-5">
+                    <img src="/assets/JoeChicks.png" class="w-50">
+                </div>
+                <div>
+                    <br/>
+                </div>                
+                <p>
+                    Joe Chicks is the Head Coach for the LCC Red Devils Soccer team, and has over 10 years of experience working with Youth Soccer.
+                </p>
+            </div>
+
+            <div class="row">
+                <h2>Red Devils LCC Women's Soccer Team</h2>
+                <div class="col-md-5">
+                    <img src="/assets/RedDevils.png" class="w-50">
+                </div>
+                <div>
+                    <br/>
+                </div>
+                <p>The Red Devils represent Lower Columbia College, and have experience in college level soccer performance.</p>
+                <br/>
+                <p><a href="https://lccreddevils.com/sports/womens-soccer">Learn more about the Red Devils</a></p>
+            </div>
+    </section>
+</main>
+
+<%- include('layouts/footer'); %>
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Page Initialization Utilities -->
+<script src="/scripts/util.js">
+    // shortPageFooter() - Fix the footer to the bottom for short pages
+</script>
+
+<!-- Custom JavaScript -->
+<script>
+    shortPageFooter();
+</script>
+</body>
+</html>

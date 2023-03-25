@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('layouts/head'); %>
+
+    <title>Soccer Camps</title>
+</head>
+
+<body>
+<%- include('layouts/navbar'); %>
+
+<main>
+    <section class="container py-4 py-md-5">
+        <h1 class="font-slab">Soccer Camps</h1>
+        <div class="container py-4 py-md-5">
+            <h2 class="display-3 fw-bold">Summer 2023 Soccer Camp</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <br/>
+                    <h2>July 22 - 23, 2023</h2>
+                    <p>
+                        Join us for the first annual soccer camp by Kelso Soccer Club, as we work to bring the community together, promote exercise, teamwork and leadership through soccer. 
+                        Saturday will be a day dedicated to soccer education and training. Sunday Funday will be full of fun practice soccer games.  
+                    </p>
+                    <ul>
+                        <li>
+                            Open to all boys and girls ages 10-15, beginner to intermediate level
+                        </li>
+                        <li>
+                            Camp will be on <b>Saturday, July 22, 8am-4pm</b> and <b>Sunday, July 23, 10am-3pm</b>
+                        </li>
+                        <li>
+                            Lunch will be provided on Saturday, snacks will be available on Sunday via the Kelso Soccer Club snack truck
+                        </li>
+                        <li>
+                            Soccer camp T-Shirt included
+                        </li>
+                        <li>
+                            <a href="/register">Camp registration</a> is $75 + 10% Off Fall Soccer Registration
+                        </li>
+                    </ul>
+                    <div>
+                        <h3>Camp Location</h3>
+                        <p><a href="https://goo.gl/maps/zVVHtkbLvbhokisP6">Riverside Park, Lexington, WA</a></p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11047.577145482559!2d-122.9138351!3d46.1926623!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549412ea297f4117%3A0x40561c679aaa073d!2sRiverside%20Park!5e0!3m2!1sit!2sch!4v1678197387115!5m2!1sit!2sch" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div>
+                    </br>
+                    </div>
+                    <div>
+                        <p class="mb-0">
+                            <button type="button" class="btn-pill btn-lg btn-primary me-3" data-bs-toggle="modal"
+                                    data-bs-target="#signupModal">Register
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+</main>
+
+<%- include('layouts/footer'); %>
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Page Initialization Utilities -->
+<script src="/scripts/util.js">
+    // shortPageFooter() - Fix the footer to the bottom for short pages
+</script>
+
+<!-- Custom JavaScript -->
+<script>
+    shortPageFooter();
+</script>
+</body>
+</html>

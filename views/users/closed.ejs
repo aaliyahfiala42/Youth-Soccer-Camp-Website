@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('../layouts/head'); %>
+
+    <title>User Dashboard - Closed Registration</title>
+    <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+
+<body>
+<%- include('../layouts/navbar', {active: 'dashboard'}); %>
+
+<!-- Flash Alert -->
+<% if (flash.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show fixed-top mt-3 ms-3 d-inline-block w-md-25"
+         role="alert">
+        <strong><%= flash %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<main>
+    <!-- Greeting Section -->
+    <section class="text-center py-md-4" style="background-color: #034A98;">
+        <div class="container py-4 py-md-5">
+            <h1 style="color: #ffffff;">
+                <i class="bi bi-cart3"></i>
+                Greetings, <%= `${user.firstName} ${user.lastName}` %>
+            </h1>
+        </div>
+    </section>
+    
+    <br/>
+
+    <section class="text-center py-md-4" style="background-color: red;">
+        <div class="container py-4 py-md-1">
+            <b style="color: #ffffff;">
+                Registration is currently closed. Please check back next year to register for the next youth soccer camp.
+            </b>
+        </div>
+    </section>
+
+    <!-- Registrations Section -->
+    <section>
+        <div class="container py-4 py-md-5">
+            
+
+            <h1 class="font-slab mb-4">
+                Current Registrations
+            </h1>
+
+            <div class="row">
+                <% posts.forEach((post) => { %>
+                    <!-- Display only current user registrations-->
+                    <% if (post.author.email == locals.user.email) {%>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-subtitle mb-2 text-muted">
+                                    <%= post.childFirstName %> <%= post.childLastName %>
+                                </h5>
+                                <p>
+                                    <b>Parent Name: </b><%= post.author.firstName %> <%= post.author.lastName %>
+                                </p>
+                                <p>
+                                    <b>Parent Email: </b><a href="mailto:<%= post.author.email %>"><%= post.author.email %></a>
+                                </p>
+                                <p>
+                                    <b>Child Name: </b><%= post.childFirstName %> <%= post.childLastName %>
+                                </p>
+                                <p>
+                                    <b>Child DOB: </b><%= post.childDOB.getMonth()%>/<%= post.childDOB.getDate()%>/<%= post.childDOB.getFullYear()%> 
+                                </p>
+                                <p>
+                                    <b>Child Gender: </b><%= post.childGender %>
+                                </p>
+                                <p>
+                                    <b>Child Shirt Size: </b><%= post.childShirtSize %>
+                                </p>
+                                <p>
+                                    <b>Registration Date: </b><%= post.createdAt.toDateString() %>
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                    <% } %>
+                <% }); %>
+            </div>
+            <br/>
+        </div>
+    </section>
+</main>
+
+<!-- Flash Alert -->
+<% if (flash.length > 0) { %>
+    <% flash.forEach((message) => { %>
+        <div class="alert alert-danger alert-dismissible fade show fixed-top mt-3 ms-3 d-inline-block w-md-25"
+             role="alert">
+            <strong><%= message %></strong> Please try again.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }); %>
+<% } %>
+
+
+<!--Register Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="createForm" method="post" action="/posts" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input type="hidden" class="form-control" id="createInputTitle" name="title" value="Soccer Camp Registration" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createInputChildFName" class="form-label">Child First Name</label>
+                        <input type="text" class="form-control" id="createInputChildFName" name="childFirstName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createInputChildLName" class="form-label">Child Last Name</label>
+                        <input type="text" class="form-control" id="createInputChildLName" name="childLastName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createInputChildDOB" class="form-label">Child Date of Birth</label>
+                        <input type="date" class="form-control" id="createInputChildDOB" name="childDOB" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createGender" class="form-label">Child Gender</label>
+                        <select class="form-control" id="createGender" name="childGender" required>
+                            <option value="Boy">Boy</option>
+                            <option value="Girl">Girl</option>
+                        </select>
+                    </div>   
+                    <div class="mb-3">
+                        <label for="createShirtSize" class="form-label">Child Shirt Size</label>
+                        <select class="form-control" id="createShirtSize" name="childShirtSize" required>
+                            <option value="Extra Small">Extra Small</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                            <option value="Extra Large">Extra Large</option>
+                        </select>
+                    </div>   
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" form="createForm">Continue to Payment</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer'); %>
+
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Page Initialization Utilities -->
+<script src="/scripts/util.js">
+</script>
+
+<!-- Custom JavaScript -->
+<script>
+    shortPageFooter() //- Fix the footer to the bottom for short pages
+</script>
+</body>
+</html>

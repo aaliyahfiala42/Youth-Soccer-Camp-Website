@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('layouts/head'); %>
+
+    <title>Cancel Registration Page</title>
+</head>
+
+<body>
+<%- include('layouts/navbar'); %>
+
+<main>
+    <section class="container py-4 py-md-5">
+        <h1 style="color:red;">Registration Cancelled</h1>
+        <p class="lead my-3">
+            Your registration has been cancelled.
+        </p>
+        <p>
+            If you have any questions, please email <a href="mailto:Kelsosoccerclub.registrar@gmail.com">kelsosoccerclub.registrar@gmail.com</a>.
+        </p>
+    </section>
+</main>
+
+<%- include('layouts/footer'); %>
+
+<!-- Bundled JS: Bootstrap, jQuery, Lodash -->
+<script src="/scripts/bundle.js"></script>
+
+<!-- Page Initialization Utilities -->
+<script src="/scripts/util.js">
+    // shortPageFooter() - Fix the footer to the bottom for short pages
+</script>
+
+<!-- Custom Scripts -->
+<script>
+    shortPageFooter();
+</script>
+</body>
+</html>

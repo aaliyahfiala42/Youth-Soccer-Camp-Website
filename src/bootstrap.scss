@@ -1,0 +1,11 @@
+/* ---------- CUSTOM OVERRIDES ---------- */
+$primary: #2a52be;
+$info: #ffcc33;
+
+// Include all of Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* ---------- CUSTOM STYLES ---------- */
+.btn-pill {
+  @extend .btn, .rounded-pill, .py-2
+}
